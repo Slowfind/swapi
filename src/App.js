@@ -1,9 +1,15 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Home from './pages/Home'
-import Films from './pages/Films'
-import People from './pages/People'
-import Planets from './pages/Planets'
+
+import {
+    Home,
+    Films,
+    People,
+    Planets,
+    Vehicles,
+    Starships,
+    Species,
+} from './pages/index'
 
 function App() {
     return (
@@ -12,6 +18,9 @@ function App() {
             <Route exact path="/films/" component={() => <Films />} />
             <Route exact path="/people/" component={() => <People />} />
             <Route exact path="/planets/" component={() => <Planets />} />
+            <Route exact path="/vehicles/" component={() => <Vehicles />} />
+            <Route exact path="/starships/" component={() => <Starships />} />
+            <Route exact path="/species/" component={() => <Species />} />
         </Switch>
     )
 }

@@ -6,7 +6,7 @@ import moment from 'moment'
 import { requestData } from '../utils/api'
 import TableSwapi from '../components/TableSwapi'
 
-function Planets() {
+function Starships() {
     const [page, setPage] = React.useState(1)
     const [state, setState] = React.useState([])
     const [gotEveryone, setGotEveryone] = React.useState(false)
@@ -23,7 +23,7 @@ function Planets() {
                     setPage,
                     setGotEveryone,
                     page,
-                    'planets'
+                    'starships'
                 )
             }
         }, 100)
@@ -39,22 +39,16 @@ function Planets() {
             dataIndex: 'name',
         },
         {
-            title: 'Климат',
-            dataIndex: 'climate',
-            filters: [
-                { text: 'temperate', value: 'temperate' },
-                { text: 'arid', value: 'arid' },
-            ],
-            filterMultiple: false,
-            onFilter: (value, record) => record.climate.indexOf(value) === 0,
+            title: 'Модель',
+            dataIndex: 'model',
         },
         {
-            title: 'Гравитация',
-            dataIndex: 'gravity',
+            title: 'Вместимость',
+            dataIndex: 'passengers',
         },
         {
-            title: 'Численность населения',
-            dataIndex: 'population',
+            title: ' Класс',
+            dataIndex: 'starship_class',
         },
         {
             title: 'Создано',
@@ -70,9 +64,9 @@ function Planets() {
         return {
             key: i,
             name: item.name,
-            climate: item.climate,
-            gravity: item.gravity,
-            population: item.population,
+            model: item.model,
+            passengers: item.passengers,
+            starship_class: item.starship_class,
             created: moment(item.created).format('LLL'),
             edited: moment(item.edited).format('LLL'),
         }
@@ -89,4 +83,4 @@ function Planets() {
     )
 }
 
-export default Planets
+export default Starships

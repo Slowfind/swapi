@@ -6,7 +6,7 @@ import moment from 'moment'
 import { requestData } from '../utils/api'
 import TableSwapi from '../components/TableSwapi'
 
-function Planets() {
+function Species() {
     const [page, setPage] = React.useState(1)
     const [state, setState] = React.useState([])
     const [gotEveryone, setGotEveryone] = React.useState(false)
@@ -23,7 +23,7 @@ function Planets() {
                     setPage,
                     setGotEveryone,
                     page,
-                    'planets'
+                    'species'
                 )
             }
         }, 100)
@@ -39,22 +39,12 @@ function Planets() {
             dataIndex: 'name',
         },
         {
-            title: 'Климат',
-            dataIndex: 'climate',
-            filters: [
-                { text: 'temperate', value: 'temperate' },
-                { text: 'arid', value: 'arid' },
-            ],
-            filterMultiple: false,
-            onFilter: (value, record) => record.climate.indexOf(value) === 0,
+            title: 'Язык',
+            dataIndex: 'language',
         },
         {
-            title: 'Гравитация',
-            dataIndex: 'gravity',
-        },
-        {
-            title: 'Численность населения',
-            dataIndex: 'population',
+            title: 'Разновидность',
+            dataIndex: 'classification',
         },
         {
             title: 'Создано',
@@ -70,9 +60,8 @@ function Planets() {
         return {
             key: i,
             name: item.name,
-            climate: item.climate,
-            gravity: item.gravity,
-            population: item.population,
+            language: item.language,
+            classification: item.classification,
             created: moment(item.created).format('LLL'),
             edited: moment(item.edited).format('LLL'),
         }
@@ -89,4 +78,4 @@ function Planets() {
     )
 }
 
-export default Planets
+export default Species
